@@ -37,8 +37,7 @@ WebARENAにおけるLizmapの設定方法
 1.まずはWebARENAの申し込み
 ・申し込みで口座確認のため1000円が一時的に落とされます
 
-・インスタンス作成，謎の220円が引落し，多分口座確認？image001.png
-
+・インスタンス作成，謎の220円が引落し，多分口座確認？https://github.com/yamamoto-ryuzo/Lizmap-installation-Japanese-memo/blob/main/%E3%82%A4%E3%83%A1%E3%83%BC%E3%82%B8/image001.png
 
 2.VPSへの接続
 ・SSH接続でインスタンスにログインする（Indigo）
