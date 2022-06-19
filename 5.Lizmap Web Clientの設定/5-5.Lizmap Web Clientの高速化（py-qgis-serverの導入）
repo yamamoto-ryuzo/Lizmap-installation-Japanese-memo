@@ -1,0 +1,36 @@
+#### 5-5.Lizmap Web Clientの高速化（py-qgis-serverの導入）　・・・　動きません，調査中  
+sudo su  
+#不要なものを削除  
+sudo apt autoremove  
+#システムを最新に  
+apt -y upgrade  
+#pipのインストール  
+apt update  
+apt -y uninstall python3-pip  
+apt -y install python3-pip  
+pip install --upgrade pip  
+#zmq  
+pip uninstall -y pyzmq  
+pip install --no-cache-dir pyzmq  
+
+#libzmq  
+apt -y install libzmq3-dev  
+#apt -y install libzmq5  
+
+#py-qgis-serverのインストール  
+#再インストールの場合は一度アンインストール  
+pip uninstall -y py-qgis-server  
+pip install --no-cache-dir py-qgis-server  
+
+(STEP2)  
+　・lizmap-fcgi.conf　へ設定を追加  
+　/etc/apache2/conf-available/lizmap-fcgi.conf   
+
+	[services]  
+#wmsServerURL="http://my.domain:<port>/ows/"  
+wmsServerURL="http://lizmap.yamakun.net:8080/ows/"  
+#Use relative path  
+relativeWMSPath=true  
+
+(STEP3)  
+qgisserver  
