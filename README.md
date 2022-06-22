@@ -23,7 +23,7 @@
 	4-6. PostGIS等拡張機能のインストール  
 5. [Lizmap Web Clientの設定](https://github.com/yamamoto-ryuzo/Lizmap-installation-Japanese-memo/blob/main/5.Lizmap%20Web%20Client%E3%81%AE%E8%A8%AD%E5%AE%9A/5.Lizmap%20Web%20Client%E3%81%AE%E8%A8%AD%E5%AE%9A.md)  
 	5-1. Lizmap Web Clientのソースコードのインストールと設定  
-	5-1.補足1.インストールエラー　Error in the main configuration.
+	5-1.補足1.インストールエラー　Error in the main configuration.  
 	5-2. Lizmap Web Clientのadminパスワード変更  
 	5-3. Lizmap Web Clientの高速化（PHPのマルチスレッド化）  
 	5-4. Lizmap Web Clientの高速化（QGIS Serverのマルチスレッド化）  
