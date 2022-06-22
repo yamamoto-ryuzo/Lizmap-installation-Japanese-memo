@@ -1,7 +1,8 @@
-####  Error in the main configuration.
+#### Error in the main configuration.
 Error 500. A technical error has occured.  
 Error in the main configuration.  
-#case1　対応  
+
+#####　対応策
 sudo su  
 #PHPのアンインストール  
 apt-get -y purge 'php*'  
