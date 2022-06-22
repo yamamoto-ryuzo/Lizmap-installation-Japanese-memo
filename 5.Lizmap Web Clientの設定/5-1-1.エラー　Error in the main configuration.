@@ -1,0 +1,24 @@
+#### エラー　Error in the main configuration.
+Error 500. A technical error has occured.  
+Error in the main configuration.  
+#case1　対応  
+sudo su  
+#PHPのアンインストール  
+apt-get -y purge 'php*'  
+apt -y autoremove  
+#PHPのインストール  
+＃8.0の場合  
+apt search php8.0-*  
+apt-get -y install php8.0-fpm php8.0-cli php8.0-bz2 php8.0-curl php8.0-gd php8.0-intl php8.0-mbstring php8.0-pgsql php8.0-sqlite3 php8.0-xml php8.0-ldap  
+#php8.0-json を明示する必要があるよう  
+apt-get install libapache2-mod-php8.0  
+#7.3の場合  
+sudo su  
+apt search php7.3-*  
+apt-get -y install php7.3-fpm php7.3-cli php7.3-bz2 php7.3-curl php7.3-gd php7.3-intl php7.3-mbstring php7.3-pgsql php7.3-sqlite3 php7.3-xml php7.3-ldap  
+apt-get install libapache2-mod-php7.3  
+
+#再インストール  
+cd /var/www/lizmap-web-client-3.5.3/  
+php lizmap/scripts/script.php lizmap~wmts:capabilities montpellier montpellier  
+php lizmap/install/installer.php  
