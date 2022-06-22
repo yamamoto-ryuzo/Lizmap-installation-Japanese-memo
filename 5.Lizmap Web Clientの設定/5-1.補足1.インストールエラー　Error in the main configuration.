@@ -2,7 +2,7 @@
 Error 500. A technical error has occured.  
 Error in the main configuration.  
 
-#####　対応策
+##### 対応策
 sudo su  
 #PHPのアンインストール  
 apt-get -y purge 'php*'  
