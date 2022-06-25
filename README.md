@@ -27,3 +27,4 @@
 	5-2. Lizmap Web Clientのadminパスワード変更  
 	5-3. Lizmap Web Clientの高速化（PHPのマルチスレッド化）  
 	5-4. Lizmap Web Clientの高速化（QGIS Serverのマルチスレッド化）  
+	5-6.qgis-plugin-managerの設定  
