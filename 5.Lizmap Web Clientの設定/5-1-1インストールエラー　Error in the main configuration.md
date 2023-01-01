@@ -15,8 +15,8 @@ array ( )
 ##### 対応策
 sudo su  
 #PHPのアンインストール  
-apt-get -y purge 'php*'  
-apt -y autoremove  
+sudo apt-get -y purge 'php*'  
+sudo apt -y autoremove  
 
 #PHPの再インストール  
 ＃PHP8.0にしたい場合（/lizmap-web-client-3.6は対応しているかも2022/06/22時点）  
