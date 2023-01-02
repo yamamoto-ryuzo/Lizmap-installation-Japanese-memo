@@ -33,7 +33,6 @@ apt-get install libapache2-mod-php7.3
 
 #lizmap-web-client　再インストール  
 cd /var/www/lizmap-web-client-3.5.3/  
-php lizmap/scripts/script.php lizmap~wmts:capabilities montpellier montpellier  
 php lizmap/install/installer.php  
 
 #参考
