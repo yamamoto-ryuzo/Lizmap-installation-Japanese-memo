@@ -1,4 +1,4 @@
-#### 5-1.補足1.インストールエラー　Error in the main configuration
+#### 5-1-1.インストールエラー　Error in the main configuration
 ##### エラー内容
 Error 500. A technical error has occured.  
 Error in the main configuration.  
