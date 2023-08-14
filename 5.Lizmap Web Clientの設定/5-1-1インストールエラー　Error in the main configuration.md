@@ -14,18 +14,24 @@ array ( )
 ↑　何がおかしいのか　＝　jelix（jacl2db）が気に入らない？　＝　PHP　も怪しい？？？  
 ↑　それってどういう意味　＝　要するにインストールがうまくいっていない  
 
+#### PHPが気に入らないとき
+---
+![Alt text](/image/image032.png)
+
+PHPの再インストール
+---
 #### 対応策  まずは古いPHPのアンインストール  
 sudo su  
 #PHPのアンインストール  
+#purgeで設定も含めて削除  
 sudo apt-get -y purge 'php*'  
 sudo apt -y autoremove  
 
 #### 2022-08-12 /lizmap-web-client-3.6.5　の場合はこちら  
 #PHPの再インストール  
-＃PHP8.2にしたい場合（/lizmap-web-client-3.6は対応しているかも2022/06/22時点）  
 sudo apt -y install php8.2-fpm php8.2-cli php8.2-bz2 php8.2-curl php8.2-gd php8.2-intl php8.2-mbstring php8.2-pgsql php8.2-sqlite3 php8.2-xml php8.2-ldap php8.2-redis  
 #php8.2-json を明示する必要があるよう  
-apt-get install libapache2-mod-php8.2  
+sudo apt-get install libapache2-mod-php8.2  
 
 #### 2022-06-21 /lizmap-web-client-3.5　の場合はこちら  
 #PHPの再インストール  
@@ -35,7 +41,8 @@ apt search php7.3-*
 sudo apt-get -y install php7.3-fpm php7.3-cli php7.3-bz2 php7.3-curl php7.3-gd php7.3-intl php7.3-mbstring php7.3-pgsql php7.3-sqlite3 php7.3-xml php7.3-ldap  
 sudo apt-get install libapache2-mod-php7.3  
 
-#lizmap-web-client　再インストール  
+lizmap-web-client　再インストール  
+---
 cd /var/www/lizmap-web-client-3.6.5/  
 php lizmap/install/configurator.php  
 php lizmap/install/installer.php  
