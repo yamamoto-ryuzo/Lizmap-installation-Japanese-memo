@@ -14,12 +14,12 @@ array ( )
 ↑　何がおかしいのか　＝　jelix（jacl2db）が気に入らない？　＝　PHP　も怪しい？？？  
 ↑　それってどういう意味　＝　要するにインストールがうまくいっていない  
 
-#### PHPが気に入らないとき
+### PHPが気に入らないとき
 ---
-![Alt text](/image/image032.png)
+![Alt text](/image/image032.png)  
 
-PHPの再インストール
----
+### PHPの再インストール  
+
 #### 対応策  まずは古いPHPのアンインストール  
 sudo su  
 #PHPのアンインストール  
@@ -41,8 +41,7 @@ apt search php7.3-*
 sudo apt-get -y install php7.3-fpm php7.3-cli php7.3-bz2 php7.3-curl php7.3-gd php7.3-intl php7.3-mbstring php7.3-pgsql php7.3-sqlite3 php7.3-xml php7.3-ldap  
 sudo apt-get install libapache2-mod-php7.3  
 
-lizmap-web-client　再インストール  
----
+#### lizmap-web-client　再インストール  
 cd /var/www/lizmap-web-client-3.6.5/  
 php lizmap/install/configurator.php  
 php lizmap/install/installer.php  

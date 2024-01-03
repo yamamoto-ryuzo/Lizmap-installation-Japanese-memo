@@ -1,4 +1,6 @@
 ## 目次  
+0.バージョン変更点  
+　　[0-1.バージョン3.7](0.バージョン変更点\lizmap3.7.MD)  
 [0. GIS-WEBアプリケーションの選定](https://github.com/yamamoto-ryuzo/Lizmap-installation-Japanese-memo/blob/main/0.%20GIS-WEB%E3%82%A2%E3%83%97%E3%83%AA%E3%82%B1%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%81%AE%E9%81%B8%E5%AE%9A.md)  
 [1.WebARENAの設定](https://github.com/yamamoto-ryuzo/Lizmap-installation-Japanese-memo/blob/main/1.%E4%BB%AE%E6%83%B3%E7%92%B0%E5%A2%83%E3%81%AE%E8%A8%AD%E5%AE%9A.md)  
 [2.WEB環境の構築](https://github.com/yamamoto-ryuzo/Lizmap-installation-Japanese-memo/blob/main/2.WEB%E7%92%B0%E5%A2%83%E3%81%AE%E6%A7%8B%E7%AF%89.md)  
