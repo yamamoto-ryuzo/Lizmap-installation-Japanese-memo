@@ -1,9 +1,16 @@
-#### 5-1-1.インストールエラー　Error in the main configuration
----
+## 5-1-1.インストールエラー　Error in the main configuration
 #### エラー内容
 Error 500. A technical error has occured.  
-Error in the main configuration.  
+Error in the main configuration.
 
+## とにかくやってみる場合
+　3.7.0からのアップデートはこれが必要でした。  
+#### lizmap-web-client　再インストール  
+cd /var/www/lizmap-web-client-3.7.6/  
+php lizmap/install/configurator.php  
+php lizmap/install/installer.php  
+
+## 真面目に原因を調べる必要のある場合  
 #### エラーログ  
 
 2022-06-21 20:36:24	223.133.253.183	[1024]	Error in main configuration on pluginsPath -- Path given in pluginsPath for the module jacl2db is ignored, since this module is unknown or deactivated	/var/www/lizmap-web-client-3.5.3/lib/jelix/core/jConfigCompiler.class.php	470
@@ -40,11 +47,6 @@ sudo su
 apt search php7.3-*  
 sudo apt-get -y install php7.3-fpm php7.3-cli php7.3-bz2 php7.3-curl php7.3-gd php7.3-intl php7.3-mbstring php7.3-pgsql php7.3-sqlite3 php7.3-xml php7.3-ldap  
 sudo apt-get install libapache2-mod-php7.3  
-
-#### lizmap-web-client　再インストール  
-cd /var/www/lizmap-web-client-3.6.5/  
-php lizmap/install/configurator.php  
-php lizmap/install/installer.php  
 
 ## 参考 ##  
 https://github.com/jelix/jelix/issues/314  
