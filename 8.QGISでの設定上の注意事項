@@ -1,2 +1,13 @@
 # 基本的なデータの置き場所が決まっている！
 https://docs.lizmap.com/current/ja/publish/quick_start/index.html#preparing-your-file-organization
+
+lizmap/
++- media/
++- custom_repository/
+   +- media/
+   +- data/
+      +- geo-data.fgb
+      +- your-geo-data.shp
+      +- your-geo-data.shx
+      +- your-geo-data.dbf
+      +- your-geo-data.prj
