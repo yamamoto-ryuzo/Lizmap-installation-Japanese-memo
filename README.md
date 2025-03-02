@@ -1,3 +1,7 @@
+# Dify　ゆかりちゃん
+　https://udify.app/chat/ROACB9bjRdLIVwZB
+
+# インストールメモ
 ### 1.仮想環境の設定  
 #### 1-1.まずは[WebARENA Indigo(Linux)](https://web.arena.ne.jp/indigo/)（例）の申し込み  
 ---
