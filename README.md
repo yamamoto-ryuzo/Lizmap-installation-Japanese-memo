@@ -1,9 +1,11 @@
 # Dify　ゆかりちゃん
-　https://udify.app/chat/ROACB9bjRdLIVwZB
+　https://udify.app/chat/ROACB9bjRdLIVwZB  
 
+# Lizmap
+　https://github.com/3liz/lizmap-web-client  
 # インストールメモ
-### 1.仮想環境の設定  
-#### 1-1.まずは[WebARENA Indigo(Linux)](https://web.arena.ne.jp/indigo/)（例）の申し込み  
+## 1.仮想環境の設定  
+### 1-1.まずは[WebARENA Indigo(Linux)](https://web.arena.ne.jp/indigo/)（例）の申し込み  
 ---
 ・申し込みで口座確認のため1000円が一時的に落とされます  
 ・インスタンス作成，謎の220円が引落し，多分口座確認？  
@@ -24,7 +26,7 @@ SSH鍵の選択（SSH鍵作成で作成してください！）
 インスタンス完成（操作＞選択＞インスタンス開始）  
 ![Alt text](image/image-4.png)  
 
-#### 1-2.VPSへの接続  
+### 1-2.VPSへの接続  
 ---
 ・SSH接続でインスタンスにログインする（Indigo）  
 SSH接続でインスタンスにログインする（Indigo）  
@@ -49,7 +51,7 @@ sudo su -
 ・起動画面はこんな感じ  
 ![Alt text](image/image.png)
 
-#### 1-3.とりあえず最新版へ  
+### 1-3.とりあえず最新版へ  
 ---
 sudo apt-get -y  update  
 sudo apt-get -y  upgrade  
@@ -66,7 +68,7 @@ sudo do-release-upgrade
 
 その他，とにかくいろいろエンターキー・・・  
 
-#### 1-4.Ubuntuの環境設定（日本語フォント含む）  
+### 1-4.Ubuntuの環境設定（日本語フォント含む）  
 ---
 sudo su  
 sudo apt -y autoremove  
@@ -85,7 +87,7 @@ sudo apt -y install ntp ntpdate
 　2.ja_JP.UTF-8　を選択  
  ![image004](https://user-images.githubusercontent.com/86514652/174401570-49f16fd3-864d-476f-a4e5-88eabc228079.png)
  
-#### 1-5.毎日丑三つ時、午前2時に再起動の設定  
+### 1-5.毎日丑三つ時、午前2時に再起動の設定  
 ---
 sudo su  
 crontab -e  
@@ -101,7 +103,7 @@ crontab -e
 Yを選択し  
 Enter　を押してファイル保存して終了  
 
-##### 1-6.ログ管理が面倒な人向け
+### 1-6.ログ管理が面倒な人向け
 ---
 定期的なクリーンアップ  
 cronジョブを設定して、古いログファイルを定期的に削除することもできます:  
@@ -113,17 +115,17 @@ text
 これにより、30日以上経過したログファイルが毎日削除されます。  
 これらの方法を組み合わせることで、/var/logの容量を効果的に制限できます。ただし、重要なログが失われないよう注意が必要です。  
 
-### 2.WEB環境の構築  Apache
+## 2.WEB環境の構築  Apache
 
 ---
-#### 2-1.Apache　サーバーの構築  
-（step0）最初からやり直したいとき  
+### 2-1.Apache　サーバーの構築  
+#### （step0）最初からやり直したいとき  
 
 sudo apt -y purge apache2 libapache2-mod-fcgid  
 sudo apt -y purge php-* php8.2-* libapache2-mod-php8.2  
 sudo apt -y autoremove  
 
-（step1）fcgidの設定   
+#### （step1）fcgidの設定   
 sudo su  
 sudo apt -y update  
 sudo apt -y upgrade  
@@ -132,9 +134,6 @@ sudo ufw app list
 ![image](https://user-images.githubusercontent.com/86514652/221405257-3878eb66-b1e5-46ae-800a-98a562d6a054.png)
  
 ##### （step2）
-**2023-07-24**  
-　**LIZMAP3.6 PHPは7.4**  
-　https://docs.lizmap.com/current/en/install/linux.html#  
 **2023-08-12**  
 　Ubuntu22.04+Lizmap3.6においてPHP7.4をインストールしたがどうも物足りんのと怒られた  
 　標準のPHP8.0をインストールすると満足してくれたみたいだ！  
@@ -157,7 +156,7 @@ sudo apt -y install php8.0-fpm php8.0-cli php8.0-bz2 php8.0-curl php8.0-gd php8.
 sudo apt-get install libapache2-mod-php8.0  
 
 ---
-#### 2-2.Webminをインストール  
+### 2-2.Webminをインストール  
 （step1）  
 sudo apt -y update  
 sudo apt -y upgrade  
@@ -176,7 +175,7 @@ sudo apt -y install webmin
 sudo ufw allow 10000  
 
 ---
-#### 2-3.Webminを利用  
+### 2-3.Webminを利用  
 
 https:// server-ip:10000/  
 でアクセスすると安全ではないといわれるが無視！して接続する。  
@@ -208,7 +207,7 @@ Username:root　　Password：設定したパスワード
  ![image009](https://user-images.githubusercontent.com/86514652/174401933-8c65d0f4-552d-4329-835b-71c0f68d8162.png)  
 
 ---
-#### 2-4.ProFTPDの設定  
+### 2-4.ProFTPDの設定  
 
 Webminよりインストール  
 　未使用のモジュール　＞　ProFTPDサーバー　＞　InstallNow　　＞　InstallNow  
@@ -232,12 +231,12 @@ Webminよりインストール
 　　　　　　　　　　　　＞作成  
 
 
-### 3.QGISサーバーの設定  
+## 3.QGISサーバーの設定  
 インストールの本格的な詳細は  
 https://docs.qgis.org/3.22/pdf/ja/QGIS-3.22-ServerUserGuide-ja.pdf  
 https://docs.qgis.org/3.22/ja/docs/training_manual/qgis_server/install.html  
 
-#### 3-1.QGISサーバーのインストール  
+### 3-1.QGISサーバーのインストール  
 ---
 今回のQGISserverは3.28だったので、  
 https://docs.qgis.org/3.28/ja/docs/training_manual/qgis_server/install.html  
@@ -275,7 +274,7 @@ sudo apt --fix-broken install
 #最後はお掃除  
 sudo apt -y autoremove  
 
-#### 3-2.QGISサーバーのインストール動作確認  
+### 3-2.QGISサーバーのインストール動作確認  
 ---
 #とりあえずサーバーのバージョンを確認してみる  
 /usr/lib/cgi-bin/qgis_mapserv.fcgi --version  
@@ -290,7 +289,7 @@ curl http://127.0.0.1/cgi-bin/qgis_mapserv.fcgi
 #apacheの設定が悪いようだ！
 
 
-#### 3-3.[QGIS-Plugin-Manager](https://docs.lizmap.com/current/en/install/pre_requirements.html#qgis-server-plugins)のインストール  
+### 3-3.[QGIS-Plugin-Manager](https://docs.lizmap.com/current/en/install/pre_requirements.html#qgis-server-plugins)のインストール  
 ---
 詳細は https://pypi.org/project/qgis-plugin-manager/  
 または https://github.com/3liz/qgis-plugin-manager  
@@ -321,19 +320,19 @@ qgis-plugin-manager install 'Data Plotly'
 
 qgis-plugin-manager upgrade  
 
-#### 3-4.QGIS-Plugin-Managerの動作確認  
+### 3-4.QGIS-Plugin-Managerの動作確認  
 ---
 #インストール状況の確認  
 qgis-plugin-manager list  
 ![Alt text](image/image029.png)  
 
-#### 3-3. [QGIS-Plugin-Managerの設定](https://docs.qgis.org/3.22/ja/docs/server_manual/plugins.html)  
+### 3-5. [QGIS-Plugin-Managerの設定](https://docs.qgis.org/3.22/ja/docs/server_manual/plugins.html)  
 ---
 とりあえずサーバーにプラグインがインストールされていないはこんな感じ？  
 「Unknown」って言われる！
 ![image](https://user-images.githubusercontent.com/86514652/210211621-0a41e5d4-43f1-4815-a3b4-00a7f7ef146a.png)
 
-#### 3-4.QGISサーバーのテスト 
+### 3-6.QGISサーバーのテスト 
 ---
 systemctl restart apache2  
 /usr/lib/cgi-bin/qgis_mapserv.fcgi  
@@ -346,14 +345,14 @@ https://docs.qgis.org/3.22/ja/docs/server_manual/getting_started.html#installati
 　私の場合はこんな感じ！雰囲気動いているっぽいが、待ちに待った3.22バージョンになっている！Ubuntu22.04で正解！心配なのは302・・・そのうちわかるだろう！  
 ![Alt text](image/image2.png)
 
-#### 3-4.QGISサーバーの設定 
+### 3-7.QGISサーバーの設定 
 ---  
 Lizmap3.6以上は必ず設定が必要！  
 しかもデフォルトと違う設定なので、修正が必要。  
 wmsServerURL="http://・・・・"  
 ![Alt text](/image/image033.png)  
 
-## QGISの設定 ##  
+### QGISの設定 ###  
 #### ・Make sure correct environment variables are set in your web server configuration ####  
 #### ・for example in Apache2 with mod_fcgid ####  
 nano /etc/apache2/mods-available/fcgid.conf  
@@ -368,17 +367,17 @@ mkdir -p /home/qgis/qgisserverdb
 chown www-data:www-data /home/qgis/qgisserverdb  
 systemctl restart apache2  
 
-### 4.PostgreSQLデータベースの構築  
-#### 4-1.PostgreSQLデータベースのインストール  
+## 4.PostgreSQLデータベースの構築  
+### 4-1.PostgreSQLデータベースのインストール  
 Webminよりインストール  
 　未使用のモジュール　＞　PostgreSQLデータベースサーバー  
 　＞　InstallNow　　＞　InstallNow  
-#### 4-2.postgresアカウントのパスワード設定  
+### 4-2.postgresアカウントのパスワード設定  
 Webminよりインストール  
 
 　サーバー　＞　PostgreSQLデータベースサーバー　＞　PostgreSQLユーザー  
 　＞　ユーザー名：postgresを選択　＞　パスワード設定　＞　保存  
-#### 4-3.lizmap追加アカウントの設定  
+### 4-3.lizmap追加アカウントの設定  
 Webminより設定  
 
 　サーバー　＞　PostgreSQLデータベースサーバー　＞　PostgreSQLユーザー  
@@ -396,7 +395,7 @@ Webminよりインストール
  ![image015](https://user-images.githubusercontent.com/86514652/174402454-3fb0cb71-bca5-4680-8188-436b8c759552.png)  
 
  
-#### 4-5.設定ファイルの編集  
+### 4-5.設定ファイルの編集  
 ##### UBUNTU	/etc/postgresql/VERSION/main/postgresql.conf の修正  
 　今回のバージョンは14.8だったので　14　で入力  
 nano /etc/postgresql/14/main/postgresql.conf  
@@ -418,7 +417,7 @@ hostssl all all 127.0.0.1	255.255.255.255	md5
 hostssl all all 0.0.0.0/0					md5  
 hostssl all all ::1/128						md5  
 
-#### 4-6.空からのLIZMAP用データベースの作成
+### 4-6.空からのLIZMAP用データベースの作成
 #### PostGIS等拡張機能のインストーと初期インストールの確認  
 Webminより空のデータベース「lizmap」を作成  
 　サーバー　＞　PostgreSQLデータベースサーバー　＞　新規データベースを作成  
@@ -439,36 +438,38 @@ sudo apt -y install postgis postgresql-14-postgis-3
 
 ![image017](https://user-images.githubusercontent.com/86514652/174402540-0143fc31-e084-4edc-ae6b-be757b00ba1c.png)  
 
-
-  
-#### 5-1.Lizmap Web Clientのインストール  
+## 5.Lizmap Web Clientのインストール（アップデート含む）
+### 5-1.Lizmap Web Clientのインストール  
 　シンボリックリンクを http://localhost/lizmap/ に設定する  
 　現在のバージョンは 3liz/lizmap-web-client: Transfer a QGIS project on a server, Lizmap is providing the web interface to browse it (github.com) で確認。  
 
-### step-1  
+#### step-1  
 ---
 https://github.com/3liz/lizmap-web-client/releases  
 で最新バージョンを確認  
 
-##### (step1-VERSION=3.8.1)  
+##### (step1-VERSION=3.9.0-rc.3)  
 sudo su  
-cd /var/www/  
-VERSION=3.8.1  
-#既存ディレクトリの強制削除  
+cd /var/www/ 
+#VERSION=3.8.1   
+VERSION=3.8.10   
+#VERSION=3.9.0-rc.3  
+#何かの間違いで既存ディレクトリがある場合は強制削除  
 rm -rf /var/www/lizmap-web-client-$VERSION  
+
+#最新版のイメージをダウンロード  
 wget https://github.com/3liz/lizmap-web-client/releases/download/$VERSION/lizmap-web-client-$VERSION.zip  
 
-#-o	ファイルを確認なしに上書きする  
+#-o	ファイルを確認なしに上書き解凍する  
 unzip -o lizmap-web-client-$VERSION.zip  
-# Lizmap本体参照のためのシンポリックリンク　の作成  
+#### Lizmap本体参照のためのシンポリックリンク　の作成  
 rm /var/www/html/lizmap  
 ln -s /var/www/lizmap-web-client-$VERSION/lizmap/www/ /var/www/html/lizmap  
+
 rm lizmap-web-client-$VERSION.zip  
 chown -R www-data:www-data /var/www/lizmap-web-client-$VERSION  
 
 ### step-2  
----
-##### (step2)  
 cd /var/www/lizmap-web-client-$VERSION/  
 cd lizmap/var/config  
 cp lizmapConfig.ini.php.dist lizmapConfig.ini.php  
@@ -479,14 +480,13 @@ cd ../../..
 lizmap/install/set_rights.sh www-data www-data  
 
 ### step-3  
----
-#####  (step3-初めてのインストール：バージョンアップは(step3-アップデート） へ）  
+### step3-初めてのインストールの場合  
 #ホームページMediaフォルダ参照のためのシンポリックリンク　の作成  
-ln -s /var/www/lizmap/ /var/www/lizmap-web-client-$VERSION/lizmap/www/izmap_symlink  
+ln -s /var/www/lizmap/ /var/www/lizmap-web-client-$VERSION/lizmap/www/lizmap_symlink  
 
 #Postgresqlデータベースにアクセスするためのいくつかのパラメータを指定  
 nano /var/www/lizmap-web-client-$VERSION/lizmap/var/config/profiles.ini.php  
-#　下記項目を置き換え  
+#####　下記項目を置き換え  
 
 [jdb:jauth]  
 driver=pgsql  
@@ -517,10 +517,46 @@ php /var/www/lizmap-web-client-$VERSION/lizmap/install/installer.php
 
 ![Alt text](../image/image025.png)  
 
-#####  (step3-アップデート）  
+###  step3-アップデートの場合  
+#いろいろシステムのアップデートしておく
+sudo apt update  
+sudo apt upgrade  
+sudo apt full-upgrade   
+sudo apt autoremove  
+
+#PHPのシステム要件を確認
+#今回はPHP8.2へ
+#現在のPHPバージョン確認
+php -v  
+sudo add-apt-repository ppa:ondrej/php -y  
+sudo apt update  
+sudo su  
+#PHPのアンインストール  
+#purgeで設定も含めて削除  
+sudo apt-get -y purge 'php*'  
+sudo apt -y autoremove  
+#PHPのインストール  
+sudo apt -y install php8.2-fpm php8.2-cli php8.2-bz2 php8.2-curl php8.2-gd php8.2-intl php8.2-mbstring php8.2-pgsql php8.2-sqlite3 php8.2-xml php8.2-ldap php8.2-redis  
+#php8.2-json を明示する必要があるよう  
+sudo apt-get install libapache2-mod-php8.2 
+#デフォルトのPHPを選択  
+sudo update-alternatives --config php  
+php -v  
+
+#プラグイン等もアップデートしておく
+sudo su  
+cd /usr/lib/qgis/plugins  
+qgis-plugin-manager update  
+qgis-plugin-manager upgrade  
+
+sudo service apache2 restart 
+#いろいろ更新があったら再起動が無難！
+sudo reboot  
+
 #設定を引き継ぐバージョンを記入ください。  
 #各自変更してください  
-old_VERSION=3.7.10  
+#その場合、続きは最初に戻る  
+old_VERSION=3.8.1  
     
 #ホームページMediaフォルダ参照のためのシンポリックリンク　の作成  
 ln -s /var/www/lizmap/ /var/www/lizmap-web-client-$VERSION/lizmap/www/lizmap_symlink  
@@ -528,23 +564,133 @@ ln -s /var/www/lizmap/ /var/www/lizmap-web-client-$VERSION/lizmap/www/lizmap_sym
 #var/config/liveconfig.ini.php　は更新してはいけません。なぜなら，app/system/mainconfig.ini.php のパラメータを含んでおり、アプリケーション自体によって変更されるものです。  
   
 cp -f /var/www/lizmap-web-client-$old_VERSION/lizmap/var/config/profiles.ini.php /var/www/lizmap-web-client-$VERSION/lizmap/var/config/profiles.ini.php  
-
 cp -f /var/www/lizmap-web-client-$old_VERSION/lizmap/var/config/lizmapConfig.ini.php  /var/www/lizmap-web-client-$VERSION/lizmap/var/config/lizmapConfig.ini.php  
-
 cp -f /var/www/lizmap-web-client-$old_VERSION/lizmap/var/config/localconfig.ini.php  /var/www/lizmap-web-client-$VERSION/lizmap/var/config/localconfig.ini.php  
   
 #初期/Landingページのコンテンツ　のコピー  
 cp -f -r /var/www/lizmap-web-client-$old_VERSION/lizmap/var/lizmap-theme-config/ /var/www/lizmap-web-client-$VERSION/lizmap/var/  
 
-### 基本プラグインのアップデートは常にした方がいい感じ！  
-### [3.6→3.7(3.7.6→3.7.10)などのアップグレードの場合はこちらも！](./5-1-2.インストールエラー　The%20application%20is%20not%20installed.md)  
-### **[プラグインも再インストール(3-3.QGIS-Plugin-Managerのインストール参照)](https://github.com/yamamoto-ryuzo/Lizmap-installation-Japanese-memo/blob/main/3.QGIS%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%AE%E8%A8%AD%E5%AE%9A.md#3-3qgis-plugin-manager%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)**  
-
-### アップデートの時はここでWEBサーバーを最新版に更新して、リセット  
-### 終了です!  
+#アパッチを再起動して終了です!  
+#どうだ確認、動いていればOK  
+#アップデートの場合はここで終了、が現実にはいつもなにかトラブルあり！💦  
 sudo service apache2 restart  
 
-### 失敗したら元に戻す  
+####  アップデート時のよくあるエラー
+##### エラー内容
+Error 500. A technical error has occured. Sorry for this trouble.
+The application is not installed
+##### lizmap-web-client　再インストール  
+cd /var/www/lizmap-web-client-$VERSION/  
+php lizmap/install/configurator.php  
+php lizmap/install/installer.php  
+sudo service apache2 restart 
+
+#### py-qgis-serverのインストール 
+#Python venv にpy-qgis-serverをインストール
+#https://docs.lizmap.com/current/ja/install/py-qgis-server.html　参照
+apt install python3-venv python3-psutil  
+set -e  
+python3 -m venv /opt/local/py-qgis-server --system-site-packages  
+/opt/local/py-qgis-server/bin/pip install -U pip setuptools wheel pysocks typing py-qgis-server  
+
+#設定と関連ファイル
+mkdir -p /srv/qgis/plugins /srv/qgis/config /srv/data /var/log/qgis /var/lib/py-qgis-server  
+touch /var/lib/py-qgis-server/py-qgis-restartmon  
+chmod 664 /var/lib/py-qgis-server/py-qgis-restartmon  
+touch /var/lib/py-qgis-server/py-qgis-restartmon  
+nano /srv/qgis/server.conf
+```
+#
+# Py-QGIS-Server configuration
+# https://docs.3liz.org/py-qgis-server/
+#
+
+[server]
+port = 7200
+interfaces = 127.0.0.1
+workers = 4
+pluginpath = /srv/qgis/plugins
+timeout = 200
+restartmon = /var/lib/py-qgis-server/py-qgis-restartmon
+
+[logging]
+level = info
+
+[projects.cache]
+strict_check = false
+rootdir = /srv/data
+size = 50
+advanced_report = no
+
+[monitor:amqp]
+routing_key =
+default_routing_key=
+host =
+
+[api.endpoints]
+lizmap_api=/lizmap
+
+[api.enabled]
+lizmap_api=yes
+```
+nano /srv/qgis/config/qgis-service.env
+```
+LC_ALL=ja_JP.UTF-8
+LANG=ja_JP.UTF-8
+DISPLAY=:99
+QGIS_OPTIONS_PATH=/srv/qgis/
+QGIS_AUTH_DB_DIR_PATH=/srv/qgis/
+GDAL_CACHEMAX=2048
+QGIS_SERVER_CACHE_SIZE=2048
+QGIS_SERVER_LIZMAP_REVEAL_SETTINGS=TRUE
+QGIS_SERVER_FORCE_READONLY_LAYERS=TRUE
+QGIS_SERVER_TRUST_LAYER_METADATA=TRUE
+QGIS_SERVER_APPLICATION_NAME=qgis-server
+```
+nano /etc/systemd/system/qgis.service
+```
+[Unit]
+Description=QGIS server
+After=network.target
+
+[Service]
+Type=simple
+
+ExecStart=/opt/local/py-qgis-server/bin/qgisserver -c /srv/qgis/server.conf
+
+# FIXME it is recommended to have a script *synchronous*, which is not the case here
+ExecReload=/usr/bin/qgis-reload
+
+KillMode=control-group
+KillSignal=SIGTERM
+TimeoutStopSec=10
+
+Restart=always
+
+StandardOutput=append:/var/log/qgis/qgis-server.log
+StandardError=inherit
+SyslogIdentifier=qgis
+
+EnvironmentFile=/srv/qgis/config/qgis-service.env
+User=root
+
+LimitNOFILE=4096
+
+[Install]
+WantedBy=multi-user.target
+```
+
+systemctl enable qgis
+service qgis start
+
+sudo service apache2 restart  
+
+##### 基本プラグインのアップデートは常にした方がいい感じ！  
+##### [3.6→3.7(3.7.6→3.7.10)などのアップグレードの場合はこちらも！](./5-1-2.インストールエラー　The%20application%20is%20not%20installed.md)  
+##### **[プラグインも再インストール(3-3.QGIS-Plugin-Managerのインストール参照)](https://github.com/yamamoto-ryuzo/Lizmap-installation-Japanese-memo/blob/main/3.QGIS%E3%82%B5%E3%83%BC%E3%83%90%E3%83%BC%E3%81%AE%E8%A8%AD%E5%AE%9A.md#3-3qgis-plugin-manager%E3%81%AE%E3%82%A4%E3%83%B3%E3%82%B9%E3%83%88%E3%83%BC%E3%83%AB)**  
+
+
+###  step3-アップデートに失敗したら場合  
 sudo su
 rm /var/www/html/lizmap  
 ln -s /var/www/lizmap-web-client-$old_VERSION/lizmap/www/ /var/www/html/lizmap  
@@ -595,19 +741,7 @@ sudo systemctl restart apache2
 
  ![image012](https://user-images.githubusercontent.com/86514652/174402261-b6a5f179-bbc3-4790-b402-1b85435ff2d1.png)
 
-## 5-1-1.インストールエラー　Error in the main configuration
-#### エラー内容
-Error 500. A technical error has occured.  
-Error in the main configuration.
-
-## とにかくやってみる場合
-　3.7.0からのアップデートはこれが必要でした。  
-#### lizmap-web-client　再インストール  
-cd /var/www/lizmap-web-client-3.7.6/  
-php lizmap/install/configurator.php  
-php lizmap/install/installer.php  
-
-## 真面目に原因を調べる必要のある場合  
+#### 真面目に原因を調べる必要のある場合  
 #### エラーログ  
 
 2022-06-21 20:36:24	223.133.253.183	[1024]	Error in main configuration on pluginsPath -- Path given in pluginsPath for the module jacl2db is ignored, since this module is unknown or deactivated	/var/www/lizmap-web-client-3.5.3/lib/jelix/core/jConfigCompiler.class.php	470
@@ -618,134 +752,7 @@ array ( )
 ↑　何がおかしいのか　＝　jelix（jacl2db）が気に入らない？　＝　PHP　も怪しい？？？  
 ↑　それってどういう意味　＝　要するにインストールがうまくいっていない  
 
-### PHPが気に入らないとき
----
-![Alt text](/image/image032.png)  
-
-### PHPの再インストール  
-
-#### 対応策  まずは古いPHPのアンインストール  
-sudo su  
-#PHPのアンインストール  
-#purgeで設定も含めて削除  
-sudo apt-get -y purge 'php*'  
-sudo apt -y autoremove  
-
-#### 2022-08-12 /lizmap-web-client-3.6.5　の場合はこちら  
-#PHPの再インストール  
-sudo apt -y install php8.2-fpm php8.2-cli php8.2-bz2 php8.2-curl php8.2-gd php8.2-intl php8.2-mbstring php8.2-pgsql php8.2-sqlite3 php8.2-xml php8.2-ldap php8.2-redis  
-#php8.2-json を明示する必要があるよう  
-sudo apt-get install libapache2-mod-php8.2  
-
-#### 2022-06-21 /lizmap-web-client-3.5　の場合はこちら  
-#PHPの再インストール  
-#PHP7.3にしたい場合
-sudo su  
-apt search php7.3-*  
-sudo apt-get -y install php7.3-fpm php7.3-cli php7.3-bz2 php7.3-curl php7.3-gd php7.3-intl php7.3-mbstring php7.3-pgsql php7.3-sqlite3 php7.3-xml php7.3-ldap  
-sudo apt-get install libapache2-mod-php7.3  
-
-## 参考 ##  
-https://github.com/jelix/jelix/issues/314  
-
-## 5-1-1.インストールエラー　Error in the main configuration
-#### エラー内容
-Error 500. A technical error has occured.  
-Error in the main configuration.
-
-## とにかくやってみる場合
-　3.7.0からのアップデートはこれが必要でした。  
-#### lizmap-web-client　再インストール  
-cd /var/www/lizmap-web-client-3.7.6/  
-php lizmap/install/configurator.php  
-php lizmap/install/installer.php  
-
-## 真面目に原因を調べる必要のある場合  
-#### エラーログ  
-
-2022-06-21 20:36:24	223.133.253.183	[1024]	Error in main configuration on pluginsPath -- Path given in pluginsPath for the module jacl2db is ignored, since this module is unknown or deactivated	/var/www/lizmap-web-client-3.5.3/lib/jelix/core/jConfigCompiler.class.php	470
-	/
-array ( )
-2022-06-21 20:36:24	223.133.253.183	[7]	Error in the main configuration. A plugin doesn't exist -- The coord plugin jacl2 is unknown.	/var/www/lizmap-web-client-3.5.3/lib/jelix/core/jConfigCompiler.class.php	206
-
-↑　何がおかしいのか　＝　jelix（jacl2db）が気に入らない？　＝　PHP　も怪しい？？？  
-↑　それってどういう意味　＝　要するにインストールがうまくいっていない  
-
-### PHPが気に入らないとき
----
-![Alt text](/image/image032.png)  
-
-### PHPの再インストール  
-
-#### 対応策  まずは古いPHPのアンインストール  
-sudo su  
-#PHPのアンインストール  
-#purgeで設定も含めて削除  
-sudo apt-get -y purge 'php*'  
-sudo apt -y autoremove  
-
-#### 2022-08-12 /lizmap-web-client-3.6.5　の場合はこちら  
-#PHPの再インストール  
-sudo apt -y install php8.2-fpm php8.2-cli php8.2-bz2 php8.2-curl php8.2-gd php8.2-intl php8.2-mbstring php8.2-pgsql php8.2-sqlite3 php8.2-xml php8.2-ldap php8.2-redis  
-#php8.2-json を明示する必要があるよう  
-sudo apt-get install libapache2-mod-php8.2  
-
-#### 2022-06-21 /lizmap-web-client-3.5　の場合はこちら  
-#PHPの再インストール  
-#PHP7.3にしたい場合
-sudo su  
-apt search php7.3-*  
-sudo apt-get -y install php7.3-fpm php7.3-cli php7.3-bz2 php7.3-curl php7.3-gd php7.3-intl php7.3-mbstring php7.3-pgsql php7.3-sqlite3 php7.3-xml php7.3-ldap  
-sudo apt-get install libapache2-mod-php7.3  
-
-## 参考 ##  
-https://github.com/jelix/jelix/issues/314  
-
-## 5-1-2.インストールエラー　The application is not installed  
-#### エラー内容
-Error 500. A technical error has occured. Sorry for this trouble.  
-The application is not installed  
-
-#簡単に言うとインストールされてないと怒っている！
-
-### アップグレードに伴いインストールが必要！
----
-#今回は【3.6から3.7】　【3.7から3.8】  
-#今回は【3.76から3.7.10】　も必要だった  
-#https://docs.lizmap.com/3.7/ja/install/upgrade.html  
-
-#3.8へのアップグレード
-
-sudo su  
-VERSION=3.8.1  
-
-cd /var/www/lizmap-web-client-$VERSION  
-sudo lizmap/install/clean_vartmp.sh  
-php lizmap/install/configurator.php  
-php lizmap/install/installer.php  
-sudo lizmap/install/clean_vartmp.sh  
-sudo lizmap/install/set_rights.sh www-data www-data  
-
-## 5-1-2.インストールエラー　トップページは動くが実際に地図表示がされない  
-#### エラー内容
-　Maps cannot be displayed. Please check the server information panel.  
-![alt text](image.png)  
-
-#### 簡単に言うとバージョンアップに伴いほかのシステムのバージョンアップが必要  
-3.7.0＞＞＞3.7.6の場合  
-lizmapServerのアップデータが必要だった！  
-なのでプラグイン一式をアップデート  
-
-sudo su  
-cd /usr/lib/qgis/plugins  
-qgis-plugin-manager update  
-qgis-plugin-manager upgrade  
-qgis-plugin-manager upgrade  
-sudo service apache2 restart  
-
-![alt text](image-1.png)　
-
-#### 5-2.Lizmap Web Clientの初期設定
+## 5-2.Lizmap Web Clientの初期設定
 http://lizmap.yamakun.net/lizmap/  
 　 
   
@@ -759,21 +766,21 @@ http://lizmap.yamakun.net/lizmap/
  ![image019](https://user-images.githubusercontent.com/86514652/174402705-90fc60bb-b40f-4b1f-a859-f830117a8ed1.png)  
 
  
-##### 5-2-1.コンテンツ用領域の作成  
+### 5-2-1.コンテンツ用領域の作成  
 
 sudo su   
 cd /var/www  
 mkdir lizmap  
 chown www-data:www-data lizmap  
 
-##### 5-2-2.リポジトリの作成  
+### 5-2-2.リポジトリの作成  
 リポジトリ「lizmapcloud」の作成例  
 mkdir  lizmap/lizmapcloud  
 chown lizmapcloud:www-data lizmapcloud  
 
 ![Alt text](../image/image027.png)
 
-#### 5-3.Lizmap Web Clientの高速化（PHPのマルチスレッド化）  
+### 5-3.Lizmap Web Clientの高速化（PHPのマルチスレッド化）  
 (STEP１)  
 sudo su  
 apt -y install php-fpm  
@@ -822,7 +829,7 @@ pm.max_requests = 300
   ![image023](https://user-images.githubusercontent.com/86514652/174403013-7ce10ae9-5627-4107-a257-59860b04cbec.png)
 
  
-#### 5-4.Lizmap Web Clientの高速化（QGIS Serverのマルチスレッド化）  
+### 5-4.Lizmap Web Clientの高速化（QGIS Serverのマルチスレッド化）  
 ※QGISサーバーの設定　2. Apache2の設定（QGIS Server Plugin含む）に追加  
 内容はレンダリングのマルチスレッド指定  
 
@@ -840,43 +847,10 @@ FcgidInitialEnv QGIS_SERVER_PARALLEL_RENDERING 1
 結果は，下記の通りqgis_mapserv.fcgiがマルチスレッドで動くようになりました。  
 ![image024](https://user-images.githubusercontent.com/86514652/174403739-0e21bc57-cb01-4a43-9dc6-ba67b62637f9.png)
 
-#### 5-5.Lizmap Web Clientの高速化（py-qgis-serverの導入）　・・・　動きません，調査中  
-sudo su  
-#不要なものを削除  
-sudo apt autoremove  
-#システムを最新に  
-apt -y upgrade  
-#pipのインストール  
-apt update  
-apt -y uninstall python3-pip  
-apt -y install python3-pip  
-pip install --upgrade pip  
-#zmq  
-pip uninstall -y pyzmq  
-pip install --no-cache-dir pyzmq  
 
-#libzmq  
-apt -y install libzmq3-dev  
-#apt -y install libzmq5  
 
-#py-qgis-serverのインストール  
-#再インストールの場合は一度アンインストール  
-pip uninstall -y py-qgis-server  
-pip install --no-cache-dir py-qgis-server  
 
-(STEP2)  
-　・lizmap-fcgi.conf　へ設定を追加  
-　/etc/apache2/conf-available/lizmap-fcgi.conf   
-
-	[services]  
-#wmsServerURL="http://my.domain:<port>/ows/"  
-wmsServerURL="http://lizmap.yamakun.net:8080/ows/"  
-#Use relative path  
-relativeWMSPath=true  
-
-(STEP3)  
-qgisserver  
-### 6.Lizmap Web Clientのカスタマイズ  
+## 6.Lizmap Web Clientのカスタマイズ  
 ### 6-1.Java スクリプトを追加  
 ### 6-2.テーマのカスタマイズ  
 骨格  
@@ -906,7 +880,7 @@ qgisserver
 　　|-- etc  
 
 ### 6-3.別の Web ページに Lizmap を埋め込む(iframe)  
-### 7. Encrypt（SSL）導入  
+## 7. Encrypt（SSL）導入  
 （SSLをインストール）  
 sudo a2enmod ssl  
 sudo a2ensite default-ssl  
@@ -930,8 +904,8 @@ sudo systemctl list-timers certbot.timer --no-pager
 
 参考までに手動での更新は  
 sudo certbot renew  
-# 8.QGISでの設定上の注意事項
-## 基本的なデータの置き場所が決まっている！
+## 8.QGISでの設定上の注意事項
+### 基本的なデータの置き場所が決まっている！
 [詳細はこちら](https://docs.lizmap.com/current/ja/publish/quick_start/index.html#preparing-your-file-organization)
 
 ![image](https://github.com/user-attachments/assets/28b74382-0fb2-4423-9b3c-89f7431772e4)
