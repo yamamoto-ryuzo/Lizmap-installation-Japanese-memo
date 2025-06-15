@@ -1,8 +1,14 @@
 # Dify　ゆかりちゃん
+<<<<<<< HEAD
 　https://udify.app/chat/ROACB9bjRdLIVwZB  
 
 # Lizmap
 　https://github.com/3liz/lizmap-web-client  
+=======
+　https://udify.app/chat/ROACB9bjRdLIVwZB
+# LIAMAP
+　https://github.com/3liz/lizmap-web-client
+>>>>>>> 89abcd60d56147af34a07db992bdf6f0bd0a26a6
 # インストールメモ
 ## 1.仮想環境の設定  
 ### 1-1.まずは[WebARENA Indigo(Linux)](https://web.arena.ne.jp/indigo/)（例）の申し込み  
